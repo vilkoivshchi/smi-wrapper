@@ -88,7 +88,8 @@ namespace smi_wrapper
                     DataStorage currentData = new (currentDate, gpuNum, smUsage, memUsage, encoderUsage, decoderUsage, frameBufferSize, bar1Size, rxPci, txPci, model, uuid);
                     
                     DateTime currentDateTime = DateTime.Now;
-                    if (currentDateTime.Minute > _prevousDateTime.Minute || currentDateTime.Hour > _prevousDateTime.Hour || currentDateTime.Day > _prevousDateTime.Day)
+                    
+                    if (currentDateTime.Minute > _prevousDateTime.Minute || currentDateTime.Hour > _prevousDateTime.Hour || currentDateTime.Day > _prevousDateTime.Day || currentDateTime.Month > _prevousDateTime.Month || currentDateTime.Year > _prevousDateTime.Year)
                     {
                         _jsonWriter.Write(_currentDataList, _prevousDateTime);
                         _currentDataList.Clear();
