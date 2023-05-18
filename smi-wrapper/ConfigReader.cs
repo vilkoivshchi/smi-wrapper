@@ -35,11 +35,13 @@ namespace smi_wrapper
                 JToken outJsonStore = config.SelectToken("filesStoreFolder");
                 if (outJsonStore != null)
                 {
-                    if (!Directory.Exists((string)outJsonStore))
+                    string jsonStorePath = (string)outJsonStore;
+                    string trimmedStore = jsonStorePath.Trim();
+                    if (!Directory.Exists(trimmedStore))
                     {
-                        Directory.CreateDirectory((string)outJsonStore);
+                        Directory.CreateDirectory(trimmedStore);
                     }
-                    settings.OutJsonPath = (string)outJsonStore;
+                    settings.OutJsonPath = trimmedStore;
                 }
             }
             else
